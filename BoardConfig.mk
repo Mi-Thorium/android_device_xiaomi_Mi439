@@ -56,6 +56,9 @@ TARGET_KERNEL_CONFIG := lineageos_mi439_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
 endif
 
+# Malloc
+MALLOC_SVELTE_FOR_LIBC32 := true
+
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_METADATA_PARTITION := true
