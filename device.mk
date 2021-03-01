@@ -56,7 +56,8 @@ PRODUCT_COPY_FILES += \
 
 # Keymaster
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.vendor
+    android.hardware.keymaster@4.1.vendor \
+    android.hardware.keymaster@4.1-service
 
 # Rootdir
 PRODUCT_PACKAGES += \
