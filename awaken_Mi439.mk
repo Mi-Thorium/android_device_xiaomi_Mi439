@@ -16,6 +16,10 @@ $(call inherit-product, vendor/awaken/config/common_full_phone.mk)
 ROM := awaken
 $(call inherit-product, device/xiaomi/Mi439/device.mk)
 
+# Overlays
+PRODUCT_PACKAGES += \
+    xiaomi_olive_overlay_awaken
+
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Mi439
 PRODUCT_NAME := awaken_Mi439
