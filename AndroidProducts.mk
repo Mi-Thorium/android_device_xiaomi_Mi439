@@ -13,9 +13,9 @@ COMMON_LUNCH_CHOICES := \
     lineage_Mi439-eng
 
 PRODUCT_MAKEFILES += \
-    $(LOCAL_DIR)/derpfest_Mi439.mk
+    $(LOCAL_DIR)/evolution_Mi439.mk
 
 COMMON_LUNCH_CHOICES += \
-    derpfest_Mi439-user \
-    derpfest_Mi439-userdebug \
-    derpfest_Mi439-eng
+    evolution_Mi439-user \
+    evolution_Mi439-userdebug \
+    evolution_Mi439-eng
