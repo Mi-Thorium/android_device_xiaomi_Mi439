@@ -13,6 +13,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from Mi439 device
+PRODUCT_USE_DYNAMIC_PARTITIONS := false
 $(call inherit-product, device/xiaomi/Mi439/device.mk)
 
 # Overlays
