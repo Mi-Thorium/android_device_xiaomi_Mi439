@@ -6,9 +6,32 @@
 
 // fstab
 
-prebuilt_etc {
+soong_config_module_type {
+    name: "xiaomi_mi439_rootdir_prebuilt_etc",
+    module_type: "prebuilt_etc",
+    config_namespace: "XIAOMI_MI439_ROOTDIR",
+    variables: ["USE_DYNAMIC_PARTITIONS"],
+    properties: ["src"],
+}
+
+soong_config_string_variable {
+    name: "USE_DYNAMIC_PARTITIONS",
+    values: ["true", "false"],
+}
+
+xiaomi_mi439_rootdir_prebuilt_etc {
     name: "fstab.qcom",
     src: "etc/fstab.qcom",
+    soong_config_variables: {
+        USE_DYNAMIC_PARTITIONS: {
+            true: {
+                src: "etc/fstab_dynpart.qcom",
+            },
+            false: {
+                src: "etc/fstab.qcom",
+            },
+        },
+    },
     vendor: true,
 }
 
