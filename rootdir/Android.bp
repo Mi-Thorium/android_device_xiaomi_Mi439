@@ -21,13 +21,15 @@ soong_config_string_variable {
 
 xiaomi_mi439_rootdir_prebuilt_etc {
     name: "fstab.qcom",
-    src: "etc/fstab.qcom",
     soong_config_variables: {
         USE_DYNAMIC_PARTITIONS: {
             true: {
                 src: "etc/fstab_dynpart.qcom",
             },
             false: {
+                src: "etc/fstab.qcom",
+            },
+            conditions_default: {
                 src: "etc/fstab.qcom",
             },
         },
