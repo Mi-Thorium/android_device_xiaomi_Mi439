@@ -11,7 +11,8 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Inherit some common EvolutionOS stuff.
 $(call inherit-product, vendor/evolution/config/common_full_phone.mk)
-
+#Evolution X: 
+TARGET_BOOT_ANIMATION_RES :=720
 # Inherit from Mi439 device
 PRODUCT_USE_DYNAMIC_PARTITIONS := false
 Rom := evolution
@@ -33,3 +34,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
 BUILD_FINGERPRINT := "Xiaomi/olive/olive:10/QKQ1.191014.001/V12.5.1.0.QCNMIXM:user/release-keys"
+
