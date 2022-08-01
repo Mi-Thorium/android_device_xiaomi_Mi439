@@ -1,1 +1,1 @@
-type fm_prop, property_type;
+system_public_prop(fm_prop);
