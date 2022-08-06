@@ -1,5 +1,5 @@
 runtime_resource_overlay {
-    name: "xiaomi_olive_overlay_lineage",
+    name: "xiaomi_olive_overlay_evolution",
     sdk_version: "current",
     vendor: true,
 }
