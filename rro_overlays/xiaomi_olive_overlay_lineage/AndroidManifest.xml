@@ -1,8 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-        package="android.overlay.lineage.xiaomi.olive"
+        package="android.overlay.evolution.xiaomi.olive"
         android:versionCode="1"
         android:versionName="1.0">
-        <overlay android:targetPackage="lineageos.platform"
+        <overlay android:targetPackage="android"
                 android:requiredSystemPropertyName="ro.vendor.xiaomi.device"
 		android:requiredSystemPropertyValue="olive"
 		android:priority="800"
