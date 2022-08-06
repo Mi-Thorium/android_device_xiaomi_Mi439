@@ -17,8 +17,8 @@ $(call inherit-product, device/xiaomi/Mi439/device.mk)
 
 # Overlays
 PRODUCT_PACKAGES += \
-    xiaomi_pine_overlay_lineage \
-    xiaomi_olive_overlay_lineage
+    xiaomi_pine_overlay_evolution \
+    xiaomi_olive_overlay_evolution
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := Mi439
