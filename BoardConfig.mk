@@ -81,6 +81,15 @@ TARGET_KERNEL_CONFIG += vendor/msm-clk.config
 TARGET_KERNEL_RECOVERY_CONFIG += vendor/msm-clk.config
 endif
 
+# Kernel - Prebuilt
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+BOARD_PREBUILT_DTBOIMAGE := device/xiaomi/kernel-mithorium/Mi439_4_19/dtbo.img
+BOARD_VENDOR_KERNEL_MODULES += $(wildcard device/xiaomi/kernel-mithorium/Mi439_4_19/*.ko)
+else
+BOARD_PREBUILT_DTBOIMAGE := device/xiaomi/kernel-mithorium/Mi439/dtbo.img
+BOARD_VENDOR_KERNEL_MODULES += $(wildcard device/xiaomi/kernel-mithorium/Mi439/*.ko)
+endif
+
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_METADATA_PARTITION := true
