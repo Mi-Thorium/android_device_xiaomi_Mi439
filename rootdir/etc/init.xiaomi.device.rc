@@ -115,3 +115,21 @@ service thermal-engine /vendor/bin/thermal-engine-olive
     socket thermal-recv-client stream 0660 system oem_2907
     socket thermal-recv-passive-client stream 0660 system oem_2907
     socket thermal-send-rule stream 0660 system oem_2907
+
+# TEMP: Disable QTI Gatekeeper / Keymaster
+service gatekeeper-1-0 /vendor/bin/true
+    override
+    class early_hal
+    user system
+    group system
+    disabled
+
+service keymaster-4-0 /vendor/bin/true
+    override
+    class early_hal
+    user system
+    group system drmrpc
+    disabled
+
+on fs
+    stop keymaster-4-0
