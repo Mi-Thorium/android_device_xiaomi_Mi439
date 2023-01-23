@@ -17,6 +17,7 @@ $(foreach p, $(call to-upper, $(ALL_PARTITIONS)), \
 include device/xiaomi/mithorium-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/Mi439
+USES_DEVICE_XIAOMI_MI439 := true
 
 # Android Verified Boot
 BOARD_AVB_ENABLE := true
@@ -27,7 +28,7 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
 # Asserts
-TARGET_OTA_ASSERT_DEVICE := pine,olive,olivelite,olivewood,olives,mi439,Mi439
+TARGET_OTA_ASSERT_DEVICE := pine,olive,olivelite,olivewood,olives,mi439,Mi439,Mi439_4_19
 
 # Display
 TARGET_SCREEN_DENSITY := 320
@@ -46,8 +47,14 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
+
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+TARGET_KERNEL_CONFIG := vendor/mi439_defconfig
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439-4.19
+else
 TARGET_KERNEL_CONFIG := mi439-perf_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
+endif
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
@@ -112,4 +119,8 @@ BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/biometrics/sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
 # Inherit from the proprietary version
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+include vendor/xiaomi/Mi439_4_19/BoardConfigVendor.mk
+else
 include vendor/xiaomi/Mi439/BoardConfigVendor.mk
+endif

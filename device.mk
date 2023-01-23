@@ -76,7 +76,11 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Inherit from vendor blobs
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+$(call inherit-product, vendor/xiaomi/Mi439_4_19/Mi439_4_19-vendor.mk)
+else
 $(call inherit-product, vendor/xiaomi/Mi439/Mi439-vendor.mk)
+endif
 
 # EXTRA: MiuiCamera
 ifneq ($(wildcard vendor/miuicamera/config.mk),)
