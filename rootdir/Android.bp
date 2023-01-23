@@ -5,10 +5,32 @@
 //
 
 // fstab
+soong_config_module_type {
+    name: "xiaomi_mi439_rootdir_prebuilt_etc",
+    module_type: "prebuilt_etc",
+    config_namespace: "XIAOMI_MI439_ROOTDIR",
+    variables: ["KERNEL_VERSION"],
+    properties: ["src"],
+}
 
-prebuilt_etc {
+soong_config_string_variable {
+    name: "KERNEL_VERSION",
+    values: ["k4_9", "k4_19"],
+}
+
+xiaomi_mi439_rootdir_prebuilt_etc {
     name: "fstab.qcom",
-    src: "etc/fstab.qcom",
+    src: "etc/fstab_4_9.qcom",
+    soong_config_variables: {
+        KERNEL_VERSION: {
+            k4_9: {
+                src: "etc/fstab_4_9.qcom",
+            },
+            k4_19: {
+                src: "etc/fstab_4_19.qcom",
+            },
+        },
+    },
     vendor: true,
 }
 
