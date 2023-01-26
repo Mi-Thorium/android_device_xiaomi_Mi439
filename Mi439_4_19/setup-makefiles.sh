@@ -13,4 +13,6 @@ export DEVICE_PARENT=Mi439
 export DEVICE_COMMON=mithorium-common
 export VENDOR=xiaomi
 
-"./../../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "--kernel-4.19" "$@"
+MY_DIR="$(cd "$(dirname "${0}")"; pwd -P)"
+
+"${MY_DIR}/../../../${VENDOR}/${DEVICE_COMMON}/setup-makefiles.sh" "--kernel-4.19" "$@"
