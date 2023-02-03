@@ -4,6 +4,9 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Audio
+TARGET_USES_MISOUND := true
+
 # Cryptfshw
 TARGET_EXCLUDE_CRYPTFSHW := true
 
