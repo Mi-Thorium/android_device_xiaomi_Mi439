@@ -1,4 +1,4 @@
-# Not appended blobs from Xiaomi/olive/olive:10/QKQ1.191014.001/V12.5.1.0.QCNCNXM:user/release-keys
+# Not appended blobs from Xiaomi/olive/olive:10/QKQ1.191014.001/V12.5.5.0.QCNCNXM:user/release-keys
 # pine Package version: Xiaomi/pine/pine:10/QKQ1.191014.001/V12.5.1.0.QCMCNXM:user/release-keys
 # PAN Package version: Nokia/Panther_00WW/PAN_sprout:11/RKQ1.200928.002/00WW_3_240:user/release-keys
 
