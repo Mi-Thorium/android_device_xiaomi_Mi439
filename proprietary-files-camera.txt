@@ -10,6 +10,10 @@ vendor/lib/libmmjpeg_interface.so
 vendor/lib/libmmlib2d_interface.so
 vendor/lib/libqomx_core.so
 
+# Camera HIDL
+vendor/lib/android.hardware.camera.provider@2.4-legacy.so
+vendor/lib/camera.device@3.2-impl.so
+
 # Camera stack
 vendor/bin/mm-qjpeg-dec-test
 vendor/bin/mm-qjpeg-enc-test
