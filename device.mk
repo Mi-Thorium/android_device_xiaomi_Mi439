@@ -7,6 +7,9 @@
 # Cryptfshw
 TARGET_EXCLUDE_CRYPTFSHW := true
 
+# Display
+TARGET_USES_Q_DISPLAY_STACK := true
+
 # Gatekeeper
 TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER := true
 
