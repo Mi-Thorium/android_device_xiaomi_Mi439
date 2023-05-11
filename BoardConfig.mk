@@ -58,6 +58,12 @@ TARGET_KERNEL_CONFIG := \
     vendor/xiaomi/sdm439/mi439.config \
     vendor/xiaomi/feature/android-12.config \
     vendor/xiaomi/feature/lmkd.config
+ifeq ($(MI439_UNIFY_BOOT_IMAGE_WITH_MI8937),true)
+TARGET_KERNEL_CONFIG += \
+    vendor/xiaomi/feature/unify-boot-image.config \
+    vendor/xiaomi/msm8937/common.config \
+    vendor/xiaomi/msm8937/mi8937.config
+endif
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 endif
 

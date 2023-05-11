@@ -81,6 +81,11 @@ PRODUCT_PACKAGES += \
     init.xiaomi.device.rc \
     init.xiaomi.device.sh
 
+ifeq ($(MI439_UNIFY_BOOT_IMAGE_WITH_MI8937),true)
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/../Mi8937/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.mi8937
+endif
+
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/pine___def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/pine___def_qcomdev.conf \
