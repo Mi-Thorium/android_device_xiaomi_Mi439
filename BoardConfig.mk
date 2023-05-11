@@ -52,8 +52,13 @@ ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_CONFIG := vendor/mi439_defconfig
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439-4.19
 else
-TARGET_KERNEL_CONFIG := lineageos_mi439_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
+TARGET_KERNEL_CONFIG := \
+    vendor/msm8937-perf_defconfig \
+    vendor/xiaomi/common.config \
+    vendor/xiaomi/sdm439/mi439.config \
+    vendor/xiaomi/feature/android-12.config \
+    vendor/xiaomi/feature/lmkd.config
+TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 endif
 
 # Partitions
