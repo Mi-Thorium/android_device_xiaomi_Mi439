@@ -48,10 +48,6 @@ BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boo
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
 
-ifeq ($(TARGET_KERNEL_VERSION),4.19)
-TARGET_KERNEL_CONFIG := vendor/mi439_defconfig
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439-4.19
-else
 TARGET_KERNEL_CONFIG := \
     vendor/msm8937-perf_defconfig \
     vendor/xiaomi/common.config \
@@ -60,6 +56,10 @@ TARGET_KERNEL_CONFIG := \
     vendor/xiaomi/feature/exfat.config \
     vendor/xiaomi/feature/lmkd.config \
     vendor/xiaomi/feature/uclamp.config
+
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
+else
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
 endif
 
