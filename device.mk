@@ -14,7 +14,9 @@ TARGET_USES_DEVICE_SPECIFIC_GATEKEEPER := true
 TARGET_USES_DEVICE_SPECIFIC_KEYMASTER := true
 
 # Vibrator
+ifneq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_USES_DEVICE_SPECIFIC_VIBRATOR := true
+endif
 
 # Inherit from mithorium-common
 $(call inherit-product, device/xiaomi/mithorium-common/mithorium.mk)
@@ -83,8 +85,10 @@ PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
 # Vibrator
+ifneq ($(TARGET_KERNEL_VERSION),4.19)
 PRODUCT_PACKAGES += \
     android.hardware.vibrator@1.3-service.xiaomi_mi439
+endif
 
 # Inherit from vendor blobs
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
