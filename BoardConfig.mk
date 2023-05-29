@@ -53,9 +53,7 @@ TARGET_KERNEL_CONFIG := \
     vendor/xiaomi/common.config \
     vendor/xiaomi/sdm439/mi439.config \
     vendor/xiaomi/feature/android-12.config \
-    vendor/xiaomi/feature/exfat.config \
-    vendor/xiaomi/feature/lmkd.config \
-    vendor/xiaomi/feature/uclamp.config
+    vendor/xiaomi/feature/lmkd.config
 
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
