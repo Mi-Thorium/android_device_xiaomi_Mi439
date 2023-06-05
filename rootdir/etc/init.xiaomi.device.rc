@@ -74,6 +74,7 @@ on property:vendor.hw.fm.ant.enable=*
 
 # IR
 on boot
+    chown system system /dev/ir_spi
     chown system system /dev/lirc0
 
 # Sensors

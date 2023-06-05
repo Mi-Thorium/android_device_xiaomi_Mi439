@@ -2,6 +2,7 @@
 # pine Package version: Xiaomi/pine/pine:10/QKQ1.191014.001/V12.5.1.0.QCMCNXM:user/release-keys
 # olivewood Package version: Redmi/olivewood/olivewood:10/QKQ1.191014.001/V12.0.4.0.QCQIDXM:user/release-keys
 # PAN Package version: Nokia/Panther_00WW/PAN_sprout:11/RKQ1.200928.002/00WW_3_240:user/release-keys
+# umi Package version: Xiaomi/umi_global/umi:13/RKQ1.211001.001/V14.0.5.0.TJBMIXM:user/release-keys
 
 # ACDB
 vendor/etc/acdbdata/adsp_avs_config.acdb
@@ -3445,8 +3446,8 @@ vendor/etc/camera/vdclear_hht_params_iii.xml
 # Charger - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/bin/hvdcp_opti
 
-# Consumer IR
-vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.msm8937.so
+# Consumer IR - from umi
+vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.msm8937.so|c5c8947ace6c6479914a57ad609a961eebf0b949
 
 # Fingerprint
 vendor/lib64/com.fingerprints.extension@1.0.so
