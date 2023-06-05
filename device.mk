@@ -30,6 +30,9 @@ PRODUCT_PACKAGES += \
     xiaomi_olive_overlay_SystemUI
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+ifneq ($(TARGET_KERNEL_VERSION),4.19)
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay-haptics
+endif
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1440
