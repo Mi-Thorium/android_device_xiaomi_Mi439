@@ -60,7 +60,22 @@ TARGET_KERNEL_CONFIG := \
 ifeq ($(TARGET_KERNEL_VERSION),4.19)
 TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
 else
-TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
+    ifneq ($(wildcard kernel/xiaomi/sdm439/Makefile),)
+        TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
+        ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/lineageos_mi439_defconfig),)
+            $(warning Using official lineageos kernel)
+            TARGET_KERNEL_CONFIG := lineageos_mi439_defconfig
+        else ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/mi439-perf_defconfig),)
+            $(warning Using mi-sdm439 kernel)
+            TARGET_KERNEL_CONFIG := mi439-perf_defconfig
+        else
+            $(warning Fallback to use Mi-Thorium kernel)
+            TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
+        endif
+    else
+        $(warning Using Mi-Thorium kernel)
+        TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
+    endif
 endif
 
 # Partitions
