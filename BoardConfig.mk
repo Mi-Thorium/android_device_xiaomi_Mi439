@@ -4,6 +4,28 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Kernel
+ifeq ($(TARGET_KERNEL_VERSION),4.9)
+    ifneq ($(wildcard kernel/xiaomi/sdm439/Makefile),)
+        TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
+        ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/arm64/configs/lineageos_mi439_defconfig),)
+            $(warning Using official lineageos kernel)
+            TARGET_KERNEL_CONFIG := lineageos_mi439_defconfig
+        else ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/arm64/configs/mi439-perf_defconfig),)
+            $(warning Using mi-sdm439 kernel)
+            TARGET_KERNEL_CONFIG := mi439-perf_defconfig
+        else
+            $(warning Fallback to use Mi-Thorium kernel)
+            TARGET_USES_MITHORIUM_KERNEL := true
+        endif
+    else
+        $(warning Using Mi-Thorium kernel)
+        TARGET_USES_MITHORIUM_KERNEL := true
+    endif
+else
+    TARGET_USES_MITHORIUM_KERNEL := true
+endif
+
 # Partitions
 SSI_PARTITIONS := product system system_ext
 TREBLE_PARTITIONS := odm vendor
@@ -47,36 +69,8 @@ BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 BOARD_KERNEL_CMDLINE += androidboot.android_dt_dir=/non-existent androidboot.boot_devices=soc/7824900.sdhci
 BOARD_KERNEL_SEPARATED_DTBO := true
 TARGET_KERNEL_ARCH := arm64
-
-TARGET_KERNEL_CONFIG := \
-    vendor/msm8937-perf_defconfig \
-    vendor/common.config \
-    vendor/feature/android-12.config \
-    vendor/feature/exfat.config \
-    vendor/feature/lmkd.config \
-    vendor/feature/uclamp.config \
-    vendor/xiaomi/sdm439/mi439.config
-
-ifeq ($(TARGET_KERNEL_VERSION),4.19)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937-4.19
-else
-    ifneq ($(wildcard kernel/xiaomi/sdm439/Makefile),)
-        TARGET_KERNEL_SOURCE := kernel/xiaomi/sdm439
-        ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/lineageos_mi439_defconfig),)
-            $(warning Using official lineageos kernel)
-            TARGET_KERNEL_CONFIG := lineageos_mi439_defconfig
-        else ifneq ($(wildcard $(TARGET_KERNEL_SOURCE)/arch/$(TARGET_KERNEL_ARCH)/configs/mi439-perf_defconfig),)
-            $(warning Using mi-sdm439 kernel)
-            TARGET_KERNEL_CONFIG := mi439-perf_defconfig
-        else
-            $(warning Fallback to use Mi-Thorium kernel)
-            TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
-        endif
-    else
-        $(warning Using Mi-Thorium kernel)
-        TARGET_KERNEL_SOURCE := kernel/xiaomi/msm8937
-    endif
-endif
+TARGET_KERNEL_CONFIG += vendor/xiaomi/sdm439/mi439.config
+TARGET_KERNEL_RECOVERY_CONFIG += vendor/xiaomi/sdm439/mi439.config
 
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
