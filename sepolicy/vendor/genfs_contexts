@@ -8,5 +8,9 @@ genfscon sysfs /class/fm/fm_lan_enable/lan_enable u:object_r:sysfs_fm_lan:s0
 genfscon sysfs /class/huaqin/		u:object_r:huaqin_sysfs:s0
 genfscon sysfs /devices/virtual/huaqin/	u:object_r:huaqin_sysfs:s0
 
+# LiveDisplay
+genfscon sysfs /devices/virtual/graphics/fb0/msm_fb_custom_panel_cmds	u:object_r:sysfs_livedisplay_tuneable:s0
+genfscon sysfs /devices/virtual/graphics/fb0/msm_fb_hbm			u:object_r:sysfs_livedisplay_tuneable:s0
+
 # Mach
 genfscon sysfs /xiaomi-sdm439-mach	u:object_r:sysfs_mi439_mach:s0

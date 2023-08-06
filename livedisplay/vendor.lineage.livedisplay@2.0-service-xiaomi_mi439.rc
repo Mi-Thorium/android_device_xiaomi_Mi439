@@ -1,0 +1,11 @@
+on init
+    # LiveDisplay xiaomi_mi439
+    chown system system /sys/devices/virtual/graphics/fb0/msm_fb_custom_panel_cmds
+    chmod 0600 /sys/devices/virtual/graphics/fb0/msm_fb_custom_panel_cmds
+    chown system system /sys/devices/virtual/graphics/fb0/msm_fb_hbm
+    chmod 0600 /sys/devices/virtual/graphics/fb0/msm_fb_hbm
+
+service vendor.livedisplay-hal-2-0-xiaomi_mi439 /vendor/bin/hw/vendor.lineage.livedisplay@2.0-service-xiaomi_mi439
+    class hal
+    user system
+    group system
