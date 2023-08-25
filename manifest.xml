@@ -14,6 +14,7 @@
         <transport>hwbinder</transport>
         <fqname>@2.0::IAdaptiveBacklight/default</fqname>
         <fqname>@2.0::IColorEnhancement/default</fqname>
+        <fqname>@2.0::IReadingEnhancement/default</fqname>
         <fqname>@2.0::ISunlightEnhancement/default</fqname>
     </hal>
 </manifest>
