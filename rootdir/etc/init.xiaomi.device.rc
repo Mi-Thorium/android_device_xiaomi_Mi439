@@ -11,60 +11,6 @@ on property:ro.vendor.xiaomi.device=pine
 on property:ro.vendor.xiaomi.device=olive
     setprop vendor.audio.mixer_xml.path /vendor/etc/olive_mixer_paths_sdm439_pm8953.xml
 
-# Camera - from Xiaomi/olive/olive:10/QKQ1.191014.001/V12.0.2.0.QCNMIXM:user/release-keys
-on boot
-    #add by yufei for dual calibration SR-QL2115-01000000567
-    chmod 0775 /data/vendor/camera
-
-on fs
-    mkdir /persist/camera/
-    chmod 0777 /persist/camera/
-    chown cameraserver audio  /persist/camera/rear_dc_cal_wt.bin
-    chmod 0777 /persist/camera/rear_dc_cal_wt.bin
-
-on post-fs-data
-    mkdir /persist/camera  0777 system system
-#Create camera director for dualcam_calibration
-    mkdir /mnt/vendor/persist/camera
-    chown system cameraserver /mnt/vendor/persist/camera
-    chmod 0755 /mnt/vendor/persist/camera
-
-#add golden bin
-on property:sys.boot_completed=1
-    mkdir /data/vendor/camera/westalgo 0777 cameraserver audio
-    mkdir /data/vendor/camera/westalgo/dof_model 0777 cameraserver audio
-    mkdir /data/vendor/camera/westalgo/rt_model 0777 cameraserver audio
-    mkdir /data/vendor/camera/westalgo/rt_model/mask 0777 cameraserver audio
-    mkdir /data/vendor/camera/westalgo/rt_model/score 0777 cameraserver audio
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_imx363_ov02a10.bin /data/vendor/camera/golden_rear_dc_cal_wt_imx363_ov02a10.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_imx363_ov02a10.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_imx363_ov02a10.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_imx486_gc2375hw.bin /data/vendor/camera/golden_rear_dc_cal_wt_imx486_gc2375hw.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_imx486_gc2375hw.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_imx486_gc2375hw.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_imx486_ov02a10.bin /data/vendor/camera/golden_rear_dc_cal_wt_imx486_ov02a10.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_imx486_ov02a10.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_imx486_ov02a10.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_s5k2l7_gc2375hw.bin /data/vendor/camera/golden_rear_dc_cal_wt_s5k2l7_gc2375hw.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_s5k2l7_gc2375hw.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_s5k2l7_gc2375hw.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_ov13b10_ov02a10.bin /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_ov02a10.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_ov02a10.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_ov02a10.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_ov13b10_gc2375hw.bin /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc2375hw.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc2375hw.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc2375hw.bin
-
-    copy /vendor/etc/camera/golden_rear_dc_cal_wt_ov13b10_gc02m1hw.bin /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc02m1hw.bin
-    chown cameraserver audio  /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc02m1hw.bin
-    chmod 0777 /data/vendor/camera/golden_rear_dc_cal_wt_ov13b10_gc02m1hw.bin
-
 # FM
 on property:hw.fm.init=*
     write /sys/class/fm/fm_lan_enable/lan_enable ${hw.fm.init}
