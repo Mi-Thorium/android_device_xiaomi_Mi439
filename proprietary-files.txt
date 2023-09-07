@@ -35,11 +35,14 @@ vendor/etc/diracmobile.config|d781cd6798a7481a8f7128d144abfb2b8794212d
 vendor/lib/soundfx/libdirac.so|f63826a905b520fa524e4c1b147be7cf65240953
 vendor/lib/libDiracAPI_SHARED.so|42b49679d38eca93fead05ea06ddbdc8108fd4b1
 
-# Charger - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# Charger - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/bin/hvdcp_opti
 
 # Consumer IR
 vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.msm8937.so
+
+# Consumer IR - from umi
+vendor/lib64/hw/consumerir.default.so:vendor/lib64/hw/consumerir.umi.so|c5c8947ace6c6479914a57ad609a961eebf0b949
 
 # Fingerprint
 vendor/lib64/com.fingerprints.extension@1.0.so
@@ -67,12 +70,12 @@ vendor/firmware/C3E_FT5446_Hnlens.bin
 vendor/firmware/C3E_FT5446_Truly.bin
 vendor/firmware/gt1x_fw.bin
 
-# Gatekeeper (QTI) - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# Gatekeeper (QTI) - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
 vendor/etc/init/android.hardware.gatekeeper@1.0-service-qti.rc
 vendor/lib64/hw/android.hardware.gatekeeper@1.0-impl-qti.so
 
-# Graphics firmware - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# Graphics firmware - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/firmware/a506_zap.b00
 vendor/firmware/a506_zap.b01
 vendor/firmware/a506_zap.b02
@@ -85,14 +88,14 @@ vendor/firmware/a506_zap.mdt
 # Keymaster (QTI) - from PAN
 vendor/etc/init/android.hardware.keymaster@4.0-service-qti.rc
 
-# Keymaster (QTI) - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# Keymaster (QTI) - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/bin/hw/android.hardware.keymaster@4.0-service-qti
 vendor/lib64/libkeymasterdeviceutils.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqcbor.so
 vendor/lib64/libqtikeymaster4.so
 
-# Perf configs - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# Perf configs - from LA.UM.9.6.3.r1-06200-89xx.0
 vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/commonsysnodesconfigs.xml
 vendor/etc/perf/perfboostsconfig.xml
@@ -117,7 +120,7 @@ vendor/bin/sensors.qti
 vendor/lib64/libsensor_reg.so
 vendor/lib64/sensors.ssc.so
 
-# IMS (uceService) - from LA.UM.9.6.3.r1-06200-89xx.0 (4.9)
+# IMS (uceService) - from LA.UM.9.6.3.r1-06200-89xx.0
 -system_ext/app/uceShimService/uceShimService.apk
 system_ext/framework/com.qualcomm.qti.uceservice-V2.0-java.jar
 system_ext/framework/com.qualcomm.qti.uceservice-V2.1-java.jar
