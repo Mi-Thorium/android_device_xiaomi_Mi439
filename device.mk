@@ -102,10 +102,6 @@ endif
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
-# LiveDisplay
-PRODUCT_PACKAGES += \
-    vendor.lineage.livedisplay@2.0-service-sysfs
-
 # Recovery
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/Mi439/proprietary/vendor/bin/hvdcp_opti:$(TARGET_COPY_OUT_RECOVERY)/root/system/bin/hvdcp_opti
