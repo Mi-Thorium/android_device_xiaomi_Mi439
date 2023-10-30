@@ -75,6 +75,11 @@ TARGET_KERNEL_CONFIG += vendor/xiaomi/sdm439/mi439.config
 TARGET_KERNEL_RECOVERY_CONFIG += vendor/xiaomi/sdm439/mi439.config
 endif
 
+ifeq ($(TARGET_KERNEL_VERSION),4.19)
+TARGET_KERNEL_CONFIG += vendor/msm-clk.config
+TARGET_KERNEL_RECOVERY_CONFIG += vendor/msm-clk.config
+endif
+
 # Partitions
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := false
 BOARD_USES_METADATA_PARTITION := true
