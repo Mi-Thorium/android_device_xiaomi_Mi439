@@ -5,3 +5,4 @@ ro.hardware.consumerir=umi
 ro.crypto.dm_default_key.options_format.version=2
 ro.crypto.volume.metadata.method=dm-default-key
 ro.crypto.volume.filenames_mode=aes-256-cts
+ro.crypto.volume.options=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized
