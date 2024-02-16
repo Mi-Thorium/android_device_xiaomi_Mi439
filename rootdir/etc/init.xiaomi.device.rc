@@ -11,6 +11,10 @@ on property:ro.vendor.xiaomi.device=pine
 on property:ro.vendor.xiaomi.device=olive
     setprop vendor.audio.mixer_xml.path /vendor/etc/olive_mixer_paths_sdm439_pm8953.xml
 
+# Camera
+on init
+    stop vendor.camera-provider-2-4
+
 # Camera - from Xiaomi/olive/olive:10/QKQ1.191014.001/V12.0.2.0.QCNMIXM:user/release-keys
 on post-fs
     # Create camera director for dualcam_calibration
@@ -81,12 +85,12 @@ on boot
 on boot && property:ro.vendor.xiaomi.device=pine
     mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/overlayfs/pine/etc/sensors/:/vendor/etc/sensors
     mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/overlayfs/pine/etc/camera/:/vendor/etc/camera
-    restart vendor.camera-provider-2-4
+    enable vendor.camera-provider-2-4
 
 on boot && property:ro.vendor.xiaomi.device=olive
     mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/overlayfs/olive/etc/sensors/:/vendor/etc/sensors
     mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/overlayfs/olive/etc/camera/:/vendor/etc/camera
-    restart vendor.camera-provider-2-4
+    enable vendor.camera-provider-2-4
 
 # Thermal
 service thermal-engine /vendor/bin/thermal-engine-olive
