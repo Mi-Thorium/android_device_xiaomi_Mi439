@@ -83,13 +83,13 @@ on boot
 
 # OverlayFS
 on boot && property:ro.vendor.xiaomi.device=pine
-    mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/overlayfs/pine/etc/sensors/:/vendor/etc/sensors
-    mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/overlayfs/pine/etc/camera/:/vendor/etc/camera
+    mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/etc/overlayfs/pine/sensors/:/vendor/etc/sensors
+    mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/etc/overlayfs/pine/camera/:/vendor/etc/camera
     enable vendor.camera-provider-2-4
 
 on boot && property:ro.vendor.xiaomi.series=olive
-    mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/overlayfs/olive/etc/sensors/:/vendor/etc/sensors
-    mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/overlayfs/olive/etc/camera/:/vendor/etc/camera
+    mount overlay overlay /vendor/etc/sensors ro lowerdir=/vendor/etc/overlayfs/olive/sensors/:/vendor/etc/sensors
+    mount overlay overlay /vendor/etc/camera ro lowerdir=/vendor/etc/overlayfs/olive/camera/:/vendor/etc/camera
     enable vendor.camera-provider-2-4
 
 # Thermal
@@ -102,3 +102,8 @@ service thermal-engine /vendor/bin/thermal-engine-olive
     socket thermal-recv-client stream 0660 system oem_2907
     socket thermal-recv-passive-client stream 0660 system oem_2907
     socket thermal-send-rule stream 0660 system oem_2907
+
+# Vibrator
+on early-boot
+    chown system system /sys/class/leds/vibrator/vmax_mv
+    chmod 0600 /sys/class/leds/vibrator/vmax_mv

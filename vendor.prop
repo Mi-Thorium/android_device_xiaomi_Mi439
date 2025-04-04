@@ -9,5 +9,18 @@ vendor.audio.feature.fluence.enable=true
 # Xiaomi Mi439 - Camera
 persist.vendor.camera.stats.test=5
 
+# Xiaomi Mi439 - FM Radio
+ro.vendor.builtin_fm_antenna_support=1
+
 # Xiaomi Mi439 - Sensors
 ro.vendor.sensors.pseudo_gyro=true
+
+# Xiaomi Mi439 - SoC
+ro.soc.manufacturer=Qualcomm
+ro.soc.model=SDM439
+
+# Xiaomi Mi439 - Vibrator
+vendor.qcom.vibrator.led.enable_effects=true
+vendor.qcom.vibrator.led.effect_ms_multiplier=10
+vendor.qcom.vibrator.led.mv_min=1600
+vendor.qcom.vibrator.led.mv_max=3000

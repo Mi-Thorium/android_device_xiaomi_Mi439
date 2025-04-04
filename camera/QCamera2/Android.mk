@@ -45,10 +45,25 @@ LOCAL_SRC_FILES += \
 LOCAL_CFLAGS := -Wall -Wextra -Werror
 LOCAL_CFLAGS += -DFDLEAK_FLAG
 LOCAL_CFLAGS += -DMEMLEAK_FLAG
+
+ifeq (1,$(filter 1,$(shell echo "$$(( $(PLATFORM_SDK_VERSION) >= 31 ))" )))
+LOCAL_CFLAGS += -Wno-compound-token-split-by-macro
+endif
+
 #HAL 1.0 source
 
 ifeq ($(TARGET_SUPPORT_HAL1),false)
 LOCAL_CFLAGS += -DQCAMERA_HAL3_SUPPORT
+LOCAL_SRC_FILES += \
+	HAL/QCameraMem.cpp \
+	HAL/QCameraThermalAdapter.cpp \
+        util/QCameraFOVControl.cpp \
+        util/QCameraHALPP.cpp \
+        util/QCameraDualFOVPP.cpp \
+        util/QCameraExtZoomTranslator.cpp \
+        util/QCameraPprocManager.cpp \
+        util/QCameraBokeh.cpp \
+        util/QCameraClearSight.cpp
 else
 LOCAL_CFLAGS += -DQCAMERA_HAL1_SUPPORT
 LOCAL_SRC_FILES += \
