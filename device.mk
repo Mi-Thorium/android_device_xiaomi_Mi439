@@ -92,9 +92,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.livedisplay-service.sysfs
 
-$(call soong_config_set,livedisplay_sysfs,enable_ab,true)
-$(call soong_config_set,livedisplay_sysfs,enable_ce,true)
-$(call soong_config_set,livedisplay_sysfs,enable_se,true)
+$(call soong_config_set_bool,livedisplay_sysfs,enable_ab,true)
+$(call soong_config_set_bool,livedisplay_sysfs,enable_ce,true)
+$(call soong_config_set_bool,livedisplay_sysfs,enable_se,true)
 
 # Power
 $(call soong_config_set,qtipower,tap_to_wake_node,/proc/sys/dev/dt2w)
