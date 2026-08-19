@@ -34,17 +34,30 @@
 #undef LIKELY
 #undef UNLIKELY
 #endif //LIKELY
+#ifdef USE_LINEAGE_DISPLAYSERVICE
+#include <lineage/frameworks/displayservice/1.0/IDisplayService.h>
+#include <lineage/frameworks/displayservice/1.0/IEventCallback.h>
+#include <lineage/frameworks/displayservice/1.0/IDisplayEventReceiver.h>
+#else
 #include <android/frameworks/displayservice/1.0/IDisplayService.h>
 #include <android/frameworks/displayservice/1.0/IEventCallback.h>
 #include <android/frameworks/displayservice/1.0/IDisplayEventReceiver.h>
+#endif
 #include <android/hidl/manager/1.0/IServiceNotification.h>
 #include <android/looper.h>
 #include <utils/Looper.h>
 
+#ifdef USE_LINEAGE_DISPLAYSERVICE
+using ::lineage::frameworks::displayservice::V1_0::IDisplayEventReceiver;
+using ::lineage::frameworks::displayservice::V1_0::IDisplayService;
+using ::lineage::frameworks::displayservice::V1_0::IEventCallback;
+using ::lineage::frameworks::displayservice::V1_0::Status;
+#else
 using ::android::frameworks::displayservice::V1_0::IDisplayEventReceiver;
 using ::android::frameworks::displayservice::V1_0::IDisplayService;
 using ::android::frameworks::displayservice::V1_0::IEventCallback;
 using ::android::frameworks::displayservice::V1_0::Status;
+#endif
 using ::android::hardware::hidl_death_recipient;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
